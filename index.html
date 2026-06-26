@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ילדות ללא סמארטפון | בית ספר ארנון</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'OtiyotiLocal';
+      src: url('file:///Users/smoozy/Library/Fonts/otiyoti-bold-fm.otf') format('opentype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'OtiyotiLocal';
+      src: url('file:///Users/smoozy/Library/Fonts/otiyoti-regular-fm.otf') format('opentype');
+      font-weight: 400;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:   #204734;
+      --green:        #2d7a5a;
+      --green-mid:    #3a9e72;
+      --green-light:  #d4eddf;
+      --orange:       #e8773a;
+      --orange-light: #fdf0e8;
+      --cream:        #faf7f2;
+      --text-dark:    #1a1a1a;
+      --text-mid:     #4a4a4a;
+      --text-light:   #767676;
+      --white:        #ffffff;
+      --radius:       14px;
+      --shadow:       0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ─── NAV ─────────────────────────────── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid #e8e0d6;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 4px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .nav-brand {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--green-dark);
+      line-height: 1.2;
+    }
+    .nav-brand span { display: block; font-weight: 400; font-size: 13px; color: var(--text-mid); }
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-links a:hover { background: var(--green-light); color: var(--green-dark); }
+
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 22px 20px 72px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+      letter-spacing: 0.3px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 7vw, 52px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 640px;
+      margin-inline: auto;
+    }
+    .hero-badge, .hero h1 { position: relative; z-index: 2; }
+    .hero-h1-hidden { color: transparent; user-select: none; }
+    .hero-img {
+      display: block;
+      margin: -30% auto 28px;
+      max-width: min(520px, 90vw);
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      font-size: clamp(16px, 3vw, 20px);
+      font-weight: 300;
+      color: var(--white);
+      max-width: 540px;
+      margin-inline: auto;
+      margin-bottom: 36px;
+      opacity: 0.92;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(232,119,58,0.4);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(232,119,58,0.5); }
+
+    /* ─── SECTION WRAPPER ─────────────────── */
+    section { padding: 56px 20px; }
+    .container { max-width: 720px; margin-inline: auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    h1, h2, h3 { font-family: 'OtiyotiLocal', 'Heebo', sans-serif; }
+    h2 {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      color: var(--text-dark);
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    p { color: var(--text-mid); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ─── QUOTE BAND ──────────────────────── */
+    .quote-band {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 52px 20px;
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-size: clamp(18px, 4vw, 26px);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 620px;
+      margin-inline: auto;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .quote-band cite {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.75;
+      font-style: normal;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── STATS GRID ─────────────────────── */
+    .stats-section { background: var(--white); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .stat-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid #ede8e0;
+    }
+    .stat-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .stat-source {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    /* ─── LOCKED PHONE SECTION ──────────── */
+    .locked-section { background: var(--white); padding: 56px 0; }
+    .locked-section .container { padding: 0 20px; }
+    .locked-scroll-wrapper {
+      overflow-x: auto;
+      padding: 8px 20px 32px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .locked-scroll-wrapper::-webkit-scrollbar { display: none; }
+    .locked-cards {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      padding-top: 8px;
+    }
+    .locked-card {
+      background: var(--cream);
+      border: 1px solid #e8e0d6;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      width: 270px;
+      flex-shrink: 0;
+    }
+    .locked-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .locked-card h3 { font-size: 16px; margin-bottom: 10px; line-height: 1.4; }
+    .locked-card p { font-size: 14px; margin-bottom: 0; line-height: 1.65; }
+    .locked-source { font-size: 11px; color: var(--text-light); margin-top: 10px; }
+
+    /* ─── POLICY SECTION ─────────────────── */
+    .policy-section {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 56px 20px;
+    }
+    .policy-section .section-label { color: rgba(255,255,255,0.6); }
+    .policy-section h2 { color: var(--white); }
+    .policy-section p { color: rgba(255,255,255,0.85); }
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .policy-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+    .policy-grade {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .policy-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .policy-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .policy-note {
+      margin-top: 28px;
+      background: rgba(255,255,255,0.08);
+      border-right: 4px solid rgba(255,255,255,0.4);
+      padding: 16px 18px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ─── NOT TOO LATE SECTION ───────────── */
+    .not-late-section { background: var(--white); }
+    .highlight-box {
+      background: var(--orange-light);
+      border-right: 4px solid var(--orange);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 20px;
+      margin-bottom: 28px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    /* ─── TIPS / ACCORDION ───────────────── */
+    .tips-section { background: var(--cream); }
+    .accordion { margin-top: 28px; display: grid; gap: 10px; }
+    .accordion-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid #e8e0d6;
+      overflow: hidden;
+    }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: right;
+      padding: 20px 22px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+    .accordion-btn:hover { background: var(--cream); }
+    .accordion-icon {
+      font-size: 22px;
+      color: var(--green);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      font-style: normal;
+    }
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .accordion-body-inner {
+      padding: 0 22px 22px;
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .accordion-body-inner ul { padding-right: 20px; margin-top: 10px; }
+    .accordion-body-inner li { margin-bottom: 8px; }
+    .accordion-body-inner strong { color: var(--text-dark); }
+
+    /* ─── CHECKLIST ──────────────────────── */
+    .checklist { list-style: none; padding: 0; margin-top: 16px; }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ─── TOGETHER SECTION ───────────────── */
+    .together-section {
+      background: var(--green-light);
+      text-align: center;
+      padding: 64px 20px;
+    }
+    .together-section h2 { max-width: 520px; margin-inline: auto; margin-bottom: 20px; }
+    .together-section p { max-width: 500px; margin-inline: auto; color: var(--text-mid); }
+    .big-cta {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 32px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .big-cta:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* ─── RESOURCES SECTION ──────────────── */
+    .resources-section { background: var(--white); }
+    .resource-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .resource-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--cream);
+      border: 1px solid #ede8e0;
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .resource-link:hover { border-color: var(--green); background: var(--green-light); }
+    .resource-link .icon { font-size: 22px; flex-shrink: 0; }
+    .resource-link small { display: block; color: var(--text-light); font-size: 12px; font-weight: 400; margin-top: 2px; }
+
+    /* ─── FOOTER ─────────────────────────── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    footer strong { color: var(--white); }
+
+    /* ─── RESPONSIVE ─────────────────────── */
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .policy-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ────────────────────────────────── -->
+<nav>
+  <div class="nav-brand">
+    🌳 ילדות ללא סמארטפון
+    <span>בית ספר ארנון</span>
+  </div>
+  <div class="nav-links">
+    <a href="#why">למה זה חשוב?</a>
+    <a href="#locked">טלפון נעול?</a>
+    <a href="#policy">מדיניות הבי״ס</a>
+    <a href="#tips">מה עושים?</a>
+    <a href="#together">יחד</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-badge">🌿 הגיע הזמן להוביל שינוי אמיתי</div>
+  <h1>הילדים שלנו ראויים <br><span class="hero-h1-hidden">לילדות אמיתית</span></h1>
+  <img src="hero-illustration.png" alt="" class="hero-img" />
+  <p>בית ספר ארנון מחויב לשמירה על ילדות בריאה.
+הצטרפו לקהילה של הורים שבוחרים לדחות את הסמארטפון —
+ביחד, זה הרבה<br>יותר קל.</p>
+  <a href="#why" class="hero-cta">אה, וואלה? ↓</a>
+</section>
+
+<!-- ─── QUOTE ────────────────────────────────── -->
+<div class="quote-band">
+  <blockquote>
+    "אומרים לנו: 'הסמארטפון כאן כדי להישאר.'
+זה נכון —<br>גם מכוניות כאן כדי להישאר.
+אבל זה לא אומר שנותנים לילד בן 11 לנהוג."
+  </blockquote>
+  <cite>— ד"ר ג'ונתן האיידט, פסיכולוג חברתי, אוניברסיטת NYU, מחבר "הדור החרד" (<a href="https://www.today.com/parents/teens/teen-smartphone-use-tips-rcna141630" target="_blank" rel="noopener" style="color:inherit;opacity:0.75;text-decoration:underline;">מקור</a>)</cite>
+</div>
+
+<!-- ─── WHY IT MATTERS ───────────────────────── -->
+<section class="stats-section" id="why">
+  <div class="container">
+    <div class="section-label">המחקרים מדברים בעד עצמם</div>
+    <h2>למה זה כל כך חשוב?</h2>
+    <p>בין 2012 ל-2023 חלה עלייה חדה במדדי דיכאון ותחושות בדידות בקרב בני נוער —
+בדיוק בתקופה שהסמארטפון הפך לחלק בלתי נפרד מחייהם כילדים.
+זה לא צירוף מקרים.</p>
+    <p>הפלטפורמות שכולנו משתמשים בהן לא תוכננו בשביל ילדים —
+הן תוכננו כדי למקסם זמן שימוש
+ו<strong>לעודד תלות והתמכרות</strong>.
+ולעובדה זו, במיוחד עבור ילדים בשלב קריטי של התפתחות, עלולות להיות ההשפעות קשות ומתמשכות.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">50%</div>
+        <div class="stat-label">מהמתבגרים מרגישים שהם מכורים לסמארטפון שלהם</div>
+        <div class="stat-source">Gallup, 2023</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">×2.5</div>
+        <div class="stat-label">עלייה בשיעורי חרדה ודיכאון בקרב בנות נוער בין 2010 ל-2023</div>
+        <div class="stat-source">CDC, 2023</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3 שעות</div>
+        <div class="stat-label">ממוצע זמן המסך היומי לילד בגיל 8–12, ובגיל 13–18: כ-9 שעות</div>
+        <div class="stat-source">Common Sense Media, 2023</div>
+      </div>
+    </div>
+
+    <p style="margin-top:28px">ובכל זאת — משהו מתחיל לזוז.
+ הורים מדברים ביניהם, ומבינים שהם לא לבד מול הלחץ ההולך ומתגבר. 
+ההכרה גוברת: כשהאדם — ובמיוחד הילד — הופך למוצר,
+מותר לנו כמבוגרים האחראיים לעצור ולהגיד: לא. עד כאן!</p>
+
+    <div style="margin-top:36px; background:var(--green-light); border-radius:var(--radius); padding:24px 22px;">
+      <h3>מה אומר המחקר על גיל ההתחלה?</h3>
+      <p style="margin-bottom:0">ילדים שמקבלים סמארטפון בגיל צעיר הם בעלי נטייה מוגברת לחרדה ודיכאון,
+לבעיות קשב וריכוז, ולנטיות לבידוד חברתי —
+לעומת חברים שנחשפו אליו בגיל מבוגר יותר.
+כל שנה שדוחים בה את כניסת הסמארטפון לחיים, עושה הבדל של ממש.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCKED PHONE ─────────────────────────── -->
+<section class="locked-section" id="locked">
+  <div class="container">
+    <div class="section-label">על "הטלפון הנעול"</div>
+    <h2>
+      סמארטפון ״נעול״? מדרון חלקלק
+    </h2>
+    <p>הרבה הורים מנסים למצוא פתרון 
+      ביניים — סמארטפון עם חסימות
+       ובקרת הורים. הנה כמה סיבות ללמה זה לא עובד טוב:</p>
+  </div>
+  <div class="locked-scroll-wrapper">
+    <div class="locked-cards">
+
+      <div class="locked-card">
+        <div class="locked-num">01</div>
+        <h3>צריך דוקטורט כדי לייצר חסימות הרמטיות.</h3>
+        <p>VPNים, דפדפנים סמויים, חיפושים עוקפי פילטרים, אין לזה סוף.
+הילדים שלנו לא פראיירים — הם מוצאים דרכים חדשות לעקוף מגבלות וברגע שילד אחד מצליח, כל השאר ידעו איך.
+</p>
+        <div class="locked-source">47% מהילדים עוקפים פיקוח הורי<br><a href="https://www.smartphonefreechildhood.org/resource/cant-i-just-give-my-kid-an-old-locked-down-smartphone" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Parentkind, 2024</a></div>
+      </div>
+
+      <div class="locked-card">
+        <div class="locked-num">02</div>
+        <h3>סמארטפון = מו"מ שלא נגמר.</h3>
+        <p>ברגע שהמכשיר כבר שם — מתחילים לחצים ובקשות נוספות.
+טיקטוק "כי לכולם יש", יוטיוב "רק לשמוע מוזיקה ".
+״צ׳ט ברובלוקס״ רק עם חברים.
+ההגבלות נשחקות, ואתם מוצאים את עצמכם עמוק בשיטת הסלאמי.</p>
+      </div>
+
+      <div class="locked-card">
+        <div class="locked-num">03</div>
+        <h3>הפיקוח מייצר יותר אשלייה של שליטה — משליטה אמיתית.</h3>
+        <p>כשהילדים כבר נחשפים לתוכן לא מותאם, רוב ההורים מגלים זאת בדיעבד, רק אחרי שהנזק כבר נעשה.</p>
+        <div class="locked-source">58% מהמתבגרים מדווחים שמעולם לא הופעל עליהם פיקוח הורי<br><a href="https://www.smartphonefreechildhood.org/resource/cant-i-just-give-my-kid-an-old-locked-down-smartphone" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Parentkind, 2024</a></div>
+      </div>
+
+      <div class="locked-card">
+        <div class="locked-num">04</div>
+        <h3>הטלפון הוא כמו תפוצ׳יפס. הוא נועד להיות ממכר.</h3>
+        <p>פילטרים והגבלות תוכן לא ישנו את מהות המכשיר עצמו.
+הם יכולים לצמצם אך לא למנוע
+את הגרירה, את הסחת הדעת, את האינסוף.
+</p>
+      </div>
+
+      <div class="locked-card">
+        <div class="locked-num">05</div>
+        <h3>בגיל 13 הכל נפתח — אוטומטית.</h3>
+        <p>חוק הטכנולוגיה מחייב את החברות להסיר הגבלות הורים בגיל 13
+אלא אם הילד עצמו מסכים להמשיך.
+כן, הילד. בהצלחה עם זה.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SCHOOL POLICY ────────────────────────── -->
+<section class="policy-section" id="policy">
+  <div class="container">
+    <div class="section-label">עמדת בית הספר</div>
+    <h2>מדיניות בית ספר ארנון</h2>
+    <p>
+     <a href="http://dub.sh/arnon-screens" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">האמנה הקהילתית</a> למרחב דיגיטלי בטוח בביה״ס ארנון
+      נועדה לקדם את הנושא  
+      על ידי נטילת אחריות קבוצתית של ההורים והילדים יחדיו. 
+
+
+יש כאן משהו שחורג מ"קל יותר ביחד". זו ערבות הדדית.
+מספיק ילד אחד בכיתה עם סמארטפון ללא 
+הגבלות מהודקות — ושאר הילדים  שלכם כבר חשופים. 
+ תוכן לא מתאים מתפשט בין ילדים מהר יותר מכינים.
+</p>
+
+ <p>
+
+בדיוק כמו שטיפול בכינים עובד רק כשכל הכיתה משתתפת — דחיית 
+הסמארטפון היא אינטרס קהילתי, ולא רק בחירה פרטית. זו לא רק שאלה
+ של "כל אחד יחליט לעצמו". זו שאלה של מה אנחנו מגינים עליו ביחד.
+זו בדיוק הסיבה שקהילת הורים שמחזיקה החלטה יחד — שווה 
+יותר מכל אפליקציית פיקוח. כשהילד יודע שחבריו גם ממתינים, הלחץ נעלם.</p><p>
+
+</p>
+
+    <div class="policy-grid">
+      <div class="policy-card">
+        <div class="policy-grade">כיתות א'–ב'</div>
+        <div class="policy-title">ללא טלפון</div>
+        <p class="policy-desc">בשלב מוקדם זה, אנו ממליצים לא להביא לילד שום 
+          טלפון — אפילו לא טלפון "בטוח". הילד בגיל הזה אינו זקוק לו.</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-grade">כיתות ג'–ה'</div>
+        <div class="policy-title">טלפון בטוח בלבד</div>
+        <p class="policy-desc"> הילד מתחיל להסתובב לבד ורוצים להרגיש שקטים? 
+          אפשר לשקול אופציה של ״טלפון בטוח״ - טלפון כפתורים 
+          פשוט — ללא אינטרנט, ללא אפליקציות, ללא רשתות חברתיות.
+        ניתן אף לצרף אליו ״אייר טאג״ (תג מיקום).
+        </p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-grade">כיתה ו' ומעלה</div>
+        <div class="policy-title">עדיין ממליצים להמתין</div>
+        <p class="policy-desc">גם בגיל זה אנו ממליצים להמשיך להימנע מסמארטפון. ילד שממתין עד כיתה ז'–ח' נמצא בעמדה טובה הרבה יותר.</p>
+      </div>
+    </div>
+
+    <div class="policy-note">
+      💡 <strong>רגע, אבל למה יש ״מוקדם מידי״ גם לטלפון בטוח?</strong>
+      שאלה במקום. מניסיון של הורים רבים - 
+אפילו שעון חכם או טלפון לילדים עם GPS יכולים לפתוח דלת לגרירה הדרגתית לעולם מקוון.
+הגיל המוקדם הוא הרגיש ביותר — ונרצה לשמור עליו.
+    </div>
+  </div>
+</section>
+
+<!-- ─── NOT TOO LATE ──────────────────────────── -->
+<section class="not-late-section" id="not-late">
+  <div class="container">
+    <div class="section-label">אם כבר נתתם סמארטפון</div>
+    <h2>לא מאוחר מדי — ממש לא</h2>
+
+    <div class="highlight-box">
+      כבר נתתם לילד סמארטפון? אתם לא לבד. ואין במה להתבייש.
+הלחץ החברתי הוא אמיתי, וכולנו רוצים שהילד ירגיש שייך.
+הבשורה הטובה — תמיד יש מה לעשות.
+    </div>
+
+    <h3>אתם ברוב המוחלט</h3>
+    <p>כמעט כל הורה שנכנע ל"כולם כבר יש להם" חש בדיוק כמוכם.
+עד לאחרונה, עבור משפחות רבות זו הרגישה כמו ברירה ברורה.
+אבל משהו מתחיל להשתנות — הורים מתחילים לשאול שאלות, לדחות, ולהבין שיש לנו אפשרות בחירה.
+<strong>ביחד, הלחץ ישתנה</strong>.</p>
+
+    <h3>מה אפשר לעשות עכשיו?</h3>
+    <p>גם אם הילד כבר עם סמארטפון, שינויים קטנים עושים הבדל גדול. הנה המקומות הכי טובים להתחיל:</p>
+
+    <ul class="checklist">
+      <li>טלפון לא בחדר השינה בלילה — יש לו מקום טעינה קבוע בסלון</li>
+      <li>ארוחות ללא מסך — לכל המשפחה, כולל ההורים</li>
+      <li>אפליקציות ורשתות חברתיות — להוריד עכשיו, ולהחזיר רק בגיל מבוגר יותר</li>
+      <li>הגדרת מגבלות זמן אפליקציה (Family Link / Screen Time)</li>
+      <li>שיחה פתוחה: "מה אתה אוהב לעשות על הטלפון? איך אתה מרגיש אחרי שעה של גלילה?"</li>
+    </ul>
+
+    <div style="margin-top:28px; background:var(--cream); border-radius:var(--radius); padding:22px;">
+      <h3>אפשר גם לקחת אותו בחזרה</h3>
+      <p>כן — ממש כך.
+אם הטלפון הפך למקור מתמיד לעימותים,
+אם אתם חוששים להשפעה על הילד שלכם — מותר לשנות דעה.
+ילדים מסתגלים מהר ממה שנדמה.
+המפתח: שיחה רגועה, הסבר כנה, 
+והצעה לחלופה — טלפון כפתורים פשוט שמאפשר שיחות ו-SMS בלבד.</p>
+      <p style="margin-bottom:0">אתם ההורים, ואתם מחליטים. מותר לכם לומר: "ניסינו, וזה לא עובד לנו." 
+       <br />
+        זה לא כישלון — זה החלטת הורות טובה.</p>
+    </div>
+
+    <div style="margin-top:28px;">
+      <h3>שוחחו עם הטכנולוגיה, לא נגדה</h3>
+      <p>לילדים גדולים יותר: הם יודעים שהם מבלים יותר מדי זמן על הטלפון.
+רובם לא מרגישים טוב עם זה.
+תשאלו אותם שאלות — לא תטיפו:</p>
+      <ul class="checklist">
+        <li>איך הגוף שלך מרגיש אחרי שעה על אינסטגרם?</li>
+        <li>מה היית עושה אם לא היה לך טלפון שעה ביום?</li>
+        <li>למה לדעתך הם עיצבו את הגלגלת האינסופית ככה?</li>
+      </ul>
+      <p style="margin-top:14px;">כשהם מבינים את מודל העסקי — 
+        שהפלטפורמות מרוויחות על כל דקה שהם גוללים —
+הם נעשים יותר מודעים ופיקחים.
+אף אחד לא אוהב להרגיש מנוצל או ״מתופעל״.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TIPS ACCORDION ────────────────────────── -->
+<section class="tips-section" id="tips">
+  <div class="container">
+    <div class="section-label">מדריך מעשי</div>
+    <h2>שאלות שכל הורה שואל</h2>
+    <p>אספנו את השאלות שעולות הכי הרבה מהורים בקהילה שלנו.</p>
+
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>מה עונים לילד שאומר "לכולם יש"?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>תודה לאל — זה לא נכון.
+יותר ויותר הורים בארנון ובבתי ספר אחרים מחליטים לדחות.
+אבל גם אם היה נכון — הלחץ 
+חברתי הוא הסיבה הגרועה ביותר לקבל החלטה.</p>
+            <p>תוכלו להגיד:
+<strong>"אנחנו לא מחליטים לפי מה שכולם עושים,
+אנחנו מחליטים לפי מה שנכון לך ולבית שלנו."</strong></p>
+            <p>ואם הלחץ קשה — בואו לדבר עם הורים אחרים בקהילה.
+כשההורים עומדים יחד, הילדים יודעים שזו עמדה אמיתית ולא סתם ״מצברוח״ חולף.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>מה אם הילד שלי צריך טלפון כדי שאוכל לתאם איתו?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p> דאגה לגיטימית לגמרי — ויש לה פתרון מעולה.
+טלפון כפתורים פשוט (כמו Nokia 3310, Doro, או דגמים דומים)
+מאפשר שיחות ו-SMS בלבד, ללא כל אפשרות לגלישה, רשתות חברתיות, או אפליקציות.</p>
+            <ul>
+              <li><strong>גיל כיתה ג'–ה':</strong> טלפון כפתורים הוא פתרון מושלם 
+                לתקשורת בטוחה</li>
+              <li><strong>ללא אינטרנט = ללא חשיפה</strong> לתוכן לא מתאים, ללא מעקב, ללא גלגלת אינסופית</li>
+              <li>הילד יכול להגיע לכם — ותגיעו אליו — בכל רגע</li>
+              <li>אפשר לצרף תג מיקום (אייר-טאג) למעקב אחרי מיקום בזמן אמת.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>איך מסבירים לילד למה אנחנו מחכים?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>כנות בדרך כלל עובדת הכי טוב. 
+              ילדים לא חייבים לאהוב את התשובה, 
+              אבל הם כן מעריכים כשמדברים אליהם 
+              בכבוד ומסבירים את הסיבה האמיתית.
+              
+              </p>
+            <p>דברים שאפשר לומר, למשל:</p>
+            <ul>
+              <li>"אנחנו יודעים שאתה ממש רוצה סמארטפון,
+                 וזה לגמרי מובן. אבל כרגע אנחנו חושבים
+ שזה עוד מוקדם בשבילך."
+</li>
+              <li>
+“אנחנו שומעים מהורים אחרים, וגם קוראים מחקרים, על 
+כמה סמארטפונים יכולים להשפיע 
+לרעה על שינה, ריכוז ומצב רוח. התפקיד 
+שלנו כהורים הוא לקבל החלטות שטובות
+ לך גם אם הן לא תמיד מה שאתה רוצה לשמוע."
+</li>
+              <li>האפליקציות בטלפון	בנויות ככה שיהיה קשה להפסיק איתן.
+“אפילו למבוגרים זה קשה. אנחנו רוצים שתגדל עוד קצת לפני שאתה מתמודד עם כל זה."
+</li>
+              <li>
+"זה לא שאנחנו לא סומכים עליך. זה בגלל שאנחנו חושבים 
+שהטכנולוגיה עצמה מאוד חזקה, ואנחנו רוצים לתת לך עוד זמן בלי הלחץ הזה."</li>
+
+
+
+ </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>מה לגבי שעוני ילדים חכמים ו"גאדג'טים בטוחים"?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>שעוני GPS לילדים (Xplora, Garmin Bounce וכו') יכולים לתת מענה לגיטימי
+לצורך בתקשורת ובטיחות — אם אכן יש צורך כזה.</p>
+            <p>שימו לב לכמה שאלות לפני הרכישה:</p>
+            <ul>
+              <li>האם יש אפשרות להוסיף אפליקציות? — עדיף שלא</li>
+              <li>האם יש גלישה חופשית באינטרנט? — אסור</li>
+              <li>האם יש מנגנון שיתוף תמונות/סרטונים עם אחרים? — בדקו היטב</li>
+            </ul>
+            <p>לילדי כיתה א'–ב' בגן ילדים פשוט: שאלו את עצמכם אם יש צורך אמיתי, או שזה בגלל לחץ.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>איך מדברים עם הורים אחרים מבלי להישמע שיפוטיים?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>הסוד הוא לדבר מניסיון אישי, לא מעמדה מוסרית.
+לא "אתם טועים" — אלא "אנחנו בחרנו ככה, ורציתי לשתף".</p>
+            <ul>
+              <li>שתפו את מה שאתם מרגישים, לא מה שהם צריכים לעשות</li>
+              <li>הציעו מידע ואל תתנו הרצאה</li>
+              <li>הזמינו לשיחה, לא לוויכוח</li>
+            </ul>
+            <p>כשמדברים על הקהילה — "בית ספר ארנון עשה החלטה מושכלת, ואנחנו מרגישים שנתמכים" —
+זה מפנה את הדיון מן ה"אנחנו נגדכם" לעבר "אנחנו ביחד".</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span>ניסינו לשים גבולות אבל הם לא מחזיקים — מה עושים?</span>
+          <i class="accordion-icon">+</i>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>כן, יש לזה נטייה לקרות — אל תרגישו כאילו נכשלתם.
+האפליקציות הן מכונות שנועדו לגרום לגבולות לא להחזיק.</p>
+            <p>כמה גישות שעוזרות:</p>
+            <ul>
+              <li><strong>הגבלה טכנית > הגבלה מוסכמת.</strong> אפשרות Screen Time/Family Link שנעולה בקוד שרק להורה יש</li>
+              <li><strong>עקביות רגועה.</strong> אין ויכוחים — יש חוק בבית. כמו חגורת בטיחות.</li>
+              <li><strong>חלופות אמיתיות.</strong> כשהטלפון מוגבל — מה הילד עושה? אם אין לזה תשובה, זה חלק מהבעיה. עזרו לו למלא את הזמן.</li>
+            </ul>
+            <p>ואם אתם כבר בשלב שהטלפון משבש את הבית —
+מותר לכם לשקול לקחת אותו לחלוטין ולהחליף אותו בטלפון בטוח. 
+זה אפשרי, והורים עשו את זה 
+ואפילו שרדו. רוצים לחלוק 
+איתנו את סיפור ההצלחה שלכם? דברו איתנו</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── TOGETHER ──────────────────────────────── -->
+<section class="together-section" id="together">
+  <div class="container">
+    <h2>ביחד — זה עובד (שאריות טקסט)</h2>
+    <p>הדבר הכי קשה בלהחזיק 
+      גבול הוא תחושת הבדידות. 
+      כשנדמה שכולם כבר ויתרו, קשה לעמוד לבד.</p>
+    <p style="margin-top:12px">אבל יש כאן משהו שחורג מ"קל יותר ביחד".
+זו 
+<strong>ערבות הדדית</strong> אמיתית.</p>
+    <p style="margin-top:12px">מספיק ילד אחד בכיתה עם סמארטפון 
+      וגישה לאינטרנט — והילד שלך כבר חשוף.
+לתוכן, לדינמיקות, לדברים שלא בחרת בהם.
+תוכן לא מתאים מתפשט בין ילדים מהר יותר מכינים —
+ולך תתקן נזק שהורה אחר עשה לילד שלך.</p>
+    <p style="margin-top:12px">בדיוק כמו שטיפול בכינים עובד רק כשכל הכיתה משתתפת —
+דחיית הסמארטפון היא אינטרס קהילתי, לא בחירה פרטית.
+זו לא שאלה של "כל אחד יחליט לעצמו".
+זו שאלה של מה אנחנו מגינים עליו ביחד.</p>
+    <p style="margin-top:12px">זו בדיוק הסיבה שקהילת הורים שמחזיקה אותה ההחלטה ביחד —
+שווה יותר מכל אפליקציית הגבלה.
+כשהילד יודע
+ש<strong>חבריו גם ממתינים</strong>,
+הלחץ נעלם.</p>
+    <p style="margin-top:12px">צרו קשר עם הצוות החינוכי של ארנון — אנחנו כאן בשבילכם.</p>
+    <a href="mailto:info@arnon-school.example.com" class="big-cta">📬 צרו קשר עם בית הספר</a>
+  </div>
+</section>
+
+<!-- ─── RESOURCES ─────────────────────────────── -->
+<section class="resources-section" id="resources">
+  <div class="container">
+    <div class="section-label">קראו עוד</div>
+    <h2>מקורות וקריאה מומלצת</h2>
+
+    <div class="resource-links">
+      <a href="https://www.smartphonefreechildhood.org" target="_blank" rel="noopener" class="resource-link">
+        <span class="icon">🌐</span>
+        <div>
+          Smartphone Free Childhood
+          <small>ארגון הורים בריטי מוביל — משאבים, מחקרים ועדויות (באנגלית)</small>
+        </div>
+      </a>
+      <a href="https://jonathanhaidt.com/anxious-generation/" target="_blank" rel="noopener" class="resource-link">
+        <span class="icon">📖</span>
+        <div>
+          "הדור החרד" — ג'ונתן האיידט
+          <small>הספר המרכזי בנושא השפעת הסמארטפון על ילדים ובני נוער</small>
+        </div>
+      </a>
+      <a href="https://www.commonsensemedia.org" target="_blank" rel="noopener" class="resource-link">
+        <span class="icon">📊</span>
+        <div>
+          Common Sense Media
+          <small>מחקרים עדכניים על ילדים ומדיה — כולל מדריכים לגיל לגיל (באנגלית)</small>
+        </div>
+      </a>
+      <a href="https://www.smartphonefreechildhood.org/resource/what-if-ive-already-got-my-child-a-smartphone-is-it-too-late" target="_blank" rel="noopener" class="resource-link">
+        <span class="icon">❓</span>
+        <div>
+          "כבר נתתי לילד סמארטפון — האם מאוחר מדי?"
+          <small>מאמר מצוין מ-Smartphone Free Childhood (באנגלית)</small>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────── -->
+<footer>
+  <strong>בית ספר ארנון</strong> · יחד לילדות בריאה ושמחה<br />
+  אתר זה הוקם ביוזמת הורי בית הספר ומיועד לקהילת ארנון
+</footer>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      const body = item.querySelector('.accordion-body');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-body').style.maxHeight = null;
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
