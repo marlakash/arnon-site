@@ -74,11 +74,19 @@
 
     /* ─── HERO ────────────────────────────── */
     .hero {
-      background: var(--green-dark);
+      background: linear-gradient(145deg, var(--green-dark) 0%, var(--green) 60%, #3a9e72 100%);
       color: var(--white);
-      padding: 22px 20px 72px;
+      padding: 64px 20px 72px;
       text-align: center;
       position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
     }
     .hero-badge {
       display: inline-block;
@@ -98,16 +106,6 @@
       margin-bottom: 20px;
       max-width: 640px;
       margin-inline: auto;
-    }
-    .hero-badge, .hero h1 { position: relative; z-index: 2; }
-    .hero-h1-hidden { color: transparent; user-select: none; }
-    .hero-img {
-      display: block;
-      margin: -30% auto 28px;
-      max-width: min(520px, 90vw);
-      width: 100%;
-      position: relative;
-      z-index: 1;
     }
     .hero p {
       font-size: clamp(16px, 3vw, 20px);
@@ -475,8 +473,7 @@
 <!-- ─── HERO ────────────────────────────────── -->
 <section class="hero">
   <div class="hero-badge">🌿 הגיע הזמן להוביל שינוי אמיתי</div>
-  <h1>הילדים שלנו ראויים <br><span class="hero-h1-hidden">לילדות אמיתית</span></h1>
-  <img src="hero-illustration.png" alt="" class="hero-img" />
+  <h1>הילדים שלנו ראויים <br>לילדות אמיתית</h1>
   <p>בית ספר ארנון מחויב לשמירה על ילדות בריאה.
 הצטרפו לקהילה של הורים שבוחרים לדחות את הסמארטפון —
 ביחד, זה הרבה<br>יותר קל.</p>
@@ -878,7 +875,7 @@
 
       <div class="accordion-item">
         <button class="accordion-btn">
-          <span>מה הילד אמור לעשות בלי סמאארטפון??</span>
+          <span>מה הילד אמור לעשות בלי סמארטפון??</span>
           <i class="accordion-icon">+</i>
         </button>
         <div class="accordion-body">
@@ -901,8 +898,7 @@
                  סלוטייפ. כל אלה הם חומרי גלם מעולים לבית לחתול, 
                  חללית, ארמון או מסלול לגולות או מכוניות. ילדים בונים עולמות שלמים בקלי קלות..</li>
               <li><strong>רחיצת רכב</strong> 
-                שפריצר וכממ סממרטוטים הם מתכון לרכב נקי בחינם ודקות ארוכות של הנאה
-                — מחבואים, כדור, שוביניות, אופניים, קורקינט. לא צריך לתאם מראש — פשוט לצאת לרחוב.</li>
+                שפריצר וכממ סמרטוטים הם מתכון לרכב נקי בחינם ודקות ארוכות של הנאה
               <li><strong>משחקי קלפים ולוח</strong> — עם אחים, שכנים, או סבא וסבתא בוידאו.</li>
               <li><strong>לגלות את הסביבה</strong> — לצאת לרחוב, לחצר, לפארק הקרוב. לטפס, לחפור, לראות מה יש.</li>
             </ul>
